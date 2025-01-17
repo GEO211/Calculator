@@ -1,0 +1,864 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: Arial, sans-serif;
+    background-image: url('/images/ndmu1.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.7), 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    max-width: 80rem;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    animation: fadeInScale 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+#logoutButton {
+    background-color: #ef4444;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#logoutButton:hover {
+    background-color: #dc2626;
+    transform: scale(1.05);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.calculator, .history {
+    background-color: #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    animation: slideInLeft 0.6s ease-out 0.2s forwards, slideInRight 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.display-container {
+    margin-bottom: 1rem;
+}
+
+#display {
+    width: 100%;
+    background-color: #ffffff;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    color: #374151;
+    transition: border-color 0.3s;
+}
+
+#display:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.calc-btn, #clearBtn, #backspaceBtn, #calculateBtn {
+    font-weight: bold;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calc-btn {
+    size: 50px;
+    color: #ffffff !important;
+    background-color: #0400ff98;
+}
+
+.calc-btn-purple {
+    color: #ffffff !important;
+    background-color: #f63bed;
+    border-radius: 8px;
+}
+
+.calc-btn:hover {
+    background-color: #2563eb;
+}
+
+.calc-btn.operator {
+    background-color: #8b5cf6;
+    color: #ffffff !important;
+}
+
+.calc-btn.operator:hover {
+    background-color: #7c3aed;
+}
+
+.calc-btn.function {
+    background-color: #6366f1;
+    color: #ffffff !important;
+}
+
+.calc-btn.function:hover {
+    background-color: #4f46e5;
+}
+
+#clearBtn {
+    background-color: #ef4444;
+    color: white;
+}
+
+#clearBtn:hover {
+    background-color: #dc2626;
+}
+
+#backspaceBtn {
+    background-color: #f59e0b;
+    color: white;
+}
+
+#backspaceBtn:hover {
+    background-color: #d97706;
+}
+
+#calculateBtn {
+    background-color: #10b981;
+    color: white;
+    grid-column: span 2;
+}
+
+#calculateBtn:hover {
+    background-color: #059669;
+}
+
+.history h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.history-table-container {
+    overflow-x: auto;
+    max-height: 24rem;
+}
+
+.history-table {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+.history-table th, .history-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.history-table th {
+    background-color: #f3f4f6;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.75rem;
+    color: #000;
+}
+
+
+.calc-btn:focus, #clearBtn:focus, #backspaceBtn:focus, #calculateBtn:focus, #logoutButton:focus {
+    outline: 2px solid #3b83f600;
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .buttons-grid {
+        gap: 0.25rem;
+    }
+
+    .calc-btn, #clearBtn, #backspaceBtn, #calculateBtn {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+.calc-btn, #clearBtn, #backspaceBtn, #calculateBtn, #logoutButton {
+    font-display: swap;
+}
+
+/* Header Buttons */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+.settings-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.settings-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    color: white;
+    text-decoration: none;
+}
+
+.settings-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .settings-btn {
+    background: #60a5fa;
+}
+
+[data-theme="dark"] .settings-btn:hover {
+    background: #3b82f6;
+}
+
+[data-theme="dark"] .logout-btn {
+    background: #f87171;
+}
+
+[data-theme="dark"] .logout-btn:hover {
+    background: #ef4444;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .header-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .settings-btn, .logout-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Settings Modal Styles */
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.settings-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.settings-modal .settings-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.settings-modal.show .settings-container {
+    transform: translateY(0);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.settings-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-settings {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.options-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.option-card {
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.option-card:hover {
+    border-color: #3b82f6;
+}
+
+.option-card.active {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.option-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #3b82f6;
+}
+
+.section-content {
+    display: none;
+}
+
+.section-content.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .settings-modal .settings-container {
+    background: #1f2937;
+    color: white;
+}
+
+[data-theme="dark"] .option-card {
+    border-color: #374151;
+}
+
+[data-theme="dark"] .option-card.active {
+    background: #374151;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select {
+    background: #374151;
+    border-color: #4b5563;
+    color: white;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Smooth transitions */
+.calc-btn, 
+#clearBtn, 
+#backspaceBtn, 
+#calculateBtn,
+.settings-btn,
+.logout-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects */
+.calc-btn:hover, 
+#clearBtn:hover, 
+#backspaceBtn:hover, 
+#calculateBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Active state animations */
+.calc-btn:active, 
+#clearBtn:active, 
+#backspaceBtn:active, 
+#calculateBtn:active {
+    transform: translateY(1px);
+}
+
+/* History Animation Keyframes */
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* History table styles with animations */
+.history-table tr {
+    animation: slideInDown 0.3s ease-out forwards;
+    opacity: 0;
+}
+
+/* Stagger the animation for multiple rows */
+.history-table tr:nth-child(1) { animation-delay: 0.1s; }
+.history-table tr:nth-child(2) { animation-delay: 0.2s; }
+.history-table tr:nth-child(3) { animation-delay: 0.3s; }
+.history-table tr:nth-child(4) { animation-delay: 0.4s; }
+.history-table tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Add smooth transitions for delete button */
+.delete-btn {
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Add this with your other animations */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+/* Add this to your history table styles */
+.history-table tr.deleting {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+/* Dark Theme Styles */
+[data-theme="dark"] body {
+    background-color: #111827;
+}
+
+[data-theme="dark"] body::before {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .container {
+    background-color: rgba(17, 24, 39, 0.95);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .calculator,
+[data-theme="dark"] .history {
+    background-color: rgba(31, 41, 55, 0.95);
+}
+
+[data-theme="dark"] #display {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+[data-theme="dark"] .calc-btn {
+    background-color: #4b5563;
+    color: white;
+}
+
+[data-theme="dark"] .calc-btn:hover {
+    background-color: #6b7280;
+}
+
+[data-theme="dark"] .calc-btn.operator {
+    background-color: #6366f1;
+}
+
+[data-theme="dark"] .calc-btn.operator:hover {
+    background-color: #4f46e5;
+}
+
+[data-theme="dark"] #clearBtn {
+    background-color: #dc2626;
+}
+
+[data-theme="dark"] #clearBtn:hover {
+    background-color: #b91c1c;
+}
+
+[data-theme="dark"] #backspaceBtn {
+    background-color: #d97706;
+}
+
+[data-theme="dark"] #backspaceBtn:hover {
+    background-color: #b45309;
+}
+
+[data-theme="dark"] #calculateBtn {
+    background-color: #059669;
+}
+
+[data-theme="dark"] #calculateBtn:hover {
+    background-color: #047857;
+}
+
+[data-theme="dark"] .history-table {
+    background-color: rgba(31, 41, 55, 0.95);
+}
+
+[data-theme="dark"] .history-table th {
+    background-color: rgba(55, 65, 81, 0.95);
+    color: #e5e7eb;
+}
+
+[data-theme="dark"] .history-table td {
+    color: #d1d5db;
+}
+
+[data-theme="dark"] .delete-btn {
+    color: #f87171;
+}
+
+[data-theme="dark"] .delete-btn:hover {
+    color: #ef4444;
+}
+
+[data-theme="dark"] #welcomeMessage {
+    color: white;
+}
+
+[data-theme="dark"] footer {
+    color: #9ca3af;
+}
+
+/* Update your theme styles */
+:root[data-theme="light"] {
+    --bg-primary: rgba(255, 255, 255, 0.9);
+    --bg-secondary: #e5e7eb;
+    --text-primary: #1f2937;
+    --text-secondary: #374151;
+    --btn-bg: #0400ff98;
+    --btn-hover: #2563eb;
+    --operator-bg: #8b5cf6;
+    --operator-hover: #7c3aed;
+}
+
+:root[data-theme="dark"] {
+    --bg-primary: rgba(17, 24, 39, 0.95);
+    --bg-secondary: rgba(31, 41, 55, 0.95);
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --btn-bg: #374151;
+    --btn-hover: #4b5563;
+    --operator-bg: #4f46e5;
+    --operator-hover: #4338ca;
+}
+
+/* Update your existing styles to use CSS variables */
+.container {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.calculator, .history {
+    background-color: var(--bg-secondary);
+    transition: background-color 0.3s ease;
+}
+
+#welcomeMessage {
+    color: var(--text-primary);
+}
+
+.calc-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-primary);
+}
+
+.calc-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+.calc-btn.operator {
+    background-color: var(--operator-bg);
+}
+
+.calc-btn.operator:hover {
+    background-color: var(--operator-hover);
+}
+
+/* Update the setTheme function in calculator.js */
+
+/* Theme Variables */
+:root[data-theme="light"] {
+    --background-color: #f0f0f0;
+    --container-bg: rgba(255, 255, 255, 0.9);
+    --calculator-bg: #e5e7eb;
+    --text-color: #1f2937;
+    --button-bg: #0400ff98;
+    --button-hover: #2563eb;
+}
+
+:root[data-theme="dark"] {
+    --background-color: #111827;
+    --container-bg: rgba(17, 24, 39, 0.95);
+    --calculator-bg: rgba(31, 41, 55, 0.95);
+    --text-color: #ffffff;
+    --button-bg: #374151;
+    --button-hover: #4b5563;
+}
+
+/* Base styles using variables */
+body {
+    background-color: var(--background-color);
+}
+
+.container {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+}
+
+.calculator, .history {
+    background-color: var(--calculator-bg);
+}
+
+/* Dark theme specific overrides */
+[data-theme="dark"] body::before {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .container {
+    background-color: var(--container-bg);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .calculator,
+[data-theme="dark"] .history {
+    background-color: var(--calculator-bg);
+}
+
+/* Add transitions */
+body,
+.container,
+.calculator,
+.history,
+.calc-btn,
+#display {
+    transition: all 0.3s ease;
+}
+
+/* Alert Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Style for delete button */
+.delete-btn {
+    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
+}
+
+.delete-btn i {
+    color: #ef4444;
+}
+
+/* Dark theme support for delete button */
+[data-theme="dark"] .delete-btn:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+}

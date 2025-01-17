@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="/css/signin.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <link rel="shortcut icon" type="x-icon" href="/images/calcu.png">
+    <style>
+        .error-message {
+            color: #ff3333;
+            background-color: #ffe6e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container sign-in-container">
+            <form id="signInForm">
+                <h1>Sign in</h1>
+                <div id="errorMessage" class="error-message">
+                    Invalid email or password. Please try again.
+                </div>
+                <div class="social-container">
+                    <a href="#" id="facebookSignIn" aria-label="Sign in with Facebook">f</a>
+                    <a href="#" id="googleSignIn" aria-label="Sign in with Google">G+</a>
+                    <a href="#" id="githubSignIn" aria-label="Sign in with GitHub">GH</a>
+                </div>
+                <span class="divider">or use your account</span>
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <a href="forgotpass.html" class="forgot-password">Forgot your password?</a>
+                <button type="submit">SIGN IN</button>
+            </form>
+        </div>
+        <div class="form-container sign-up-container">
+            <img src="/images/calcu.png" alt="logo" class="logo">
+            <h1>Hello, Bossing!</h1>
+            <p>Enter your personal details and start your journey with us</p>
+            <a href="signup.html" class="ghost">SIGN UP</a>
+        </div>
+    </div>
+    <script src="/js/signin.js"></script>
+</body>
+</html>

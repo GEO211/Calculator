@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/signup.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <link rel="shortcut icon" type="x-icon" href="/images/calcu.png">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container sign-up-container">
+            <form id="signUpForm">
+                <h1>Sign up</h1>
+                <div class="social-container">
+                    <a href="#" id="facebookSignUp" aria-label="Sign up with Facebook">f</a>
+                    <a href="#" id="googleSignUp" aria-label="Sign up with Google">G+</a>
+                    <a href="#" id="githubSignUp" aria-label="Sign up with GitHub">GH</a>
+                </div>
+                <span class="divider">or use your email for registration</span>
+                <input type="text" id="username" placeholder="Username" aria-label="Username" required />
+                <input type="email" id="email" placeholder="Email" aria-label="Email" required />
+                <input type="password" id="password" placeholder="Password" aria-label="Password" required />
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" aria-label="Confirm Password" required />
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="termsCheckbox" required>
+                    <label for="termsCheckbox" class="checkbox-label">
+                        I accept the<a href="#" id="openModal">terms and conditions</a>
+                    </label>
+                </div>
+
+                <button type="submit">SIGN UP</button>
+            </form>
+        </div>
+        <div class="form-container welcome-container">
+            <img src="/images/calcu.png" alt="logo" class="logo">
+            <h1>Hello, Bossing!</h1>
+            <p>Enter your personal details and start your journey with us</p>
+            <a href="signin.html" class="ghost">SIGN IN</a>
+        </div>
+    </div>
+
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h1>Terms and Conditions for Using GCalculator</h1>
+            <p>By using GCalculator, you agree to the following terms and conditions:</p>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing and using GCalculator, you accept and agree to be bound by these terms. If you do not agree to these terms, please do not use our services.</p>
+            <h2>2. User Data Collection</h2>
+            <p>We may collect and store data that you input into our calculator, including but not limited to personal information, calculation history, and preferences. This data will be used to enhance your user experience and improve our services.</p>
+            <h2>3. Data Privacy</h2>
+            <p>We take your privacy seriously. We will not sell, trade, or rent your personal information to third parties. Your data may be shared with trusted partners for the purpose of providing our services, but only in accordance with our privacy policy.</p>
+            <h2>4. Data Security</h2>
+            <p>We implement appropriate security measures to protect your data. However, no method of transmission over the Internet or method of electronic storage is 100% secure. Therefore, we cannot guarantee its absolute security.</p>
+            <h2>5. User Responsibility</h2>
+            <p>You are responsible for maintaining the confidentiality of your account and password. You agree to notify us immediately of any unauthorized use of your account or any other breach of security.</p>
+            <h2>6. Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. Any changes will be effective immediately upon posting on our website. Your continued use of GCalculator following any changes constitutes your acceptance of the new terms.</p>
+            <h2>7. Limitation of Liability</h2>
+            <p>GCalculator is provided on an "as-is" and "as-available" basis. We do not guarantee the accuracy or reliability of the results obtained from using our calculator. We are not liable for any damages arising from your use of the service.</p>
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions about these terms, please contact us at @gmail.com</p>
+
+            <footer class="text-white text-center p-4 footer-text">
+                <p>&copy; 2024 GCalculator. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <footer class="text-white text-center p-4 footer-text">
+        <p>&copy; 2024 GCalculator. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/signup.js"></script> 
+</body>
+</html>

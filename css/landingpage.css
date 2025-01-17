@@ -1,0 +1,507 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0e1f;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3a7bfd;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0 50px;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 50%;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease forwards;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #002a7ed2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #002a7efb;
+    transform: translateY(-3px);
+    
+}
+
+.hero-image {
+    width: 40%;
+    position: relative;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 1s ease forwards;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(45deg, #3a7bfd, #439797);
+    border-radius: 20px;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.hero-image:hover::before {
+    opacity: 0.8;
+}
+
+.partners {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.partner-logo {
+    width: 100px;
+    height: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 50px 0;
+}
+
+.feature {
+    background-color: #1a1f35;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.7), 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.benefits-content {
+    width: 50%;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease forwards;
+}
+.px-20{
+    font-size: 30px;
+}
+
+.medyo-blue{
+    color:#b6b6b6;
+}
+
+
+.madewith {
+    padding: 60px 0;
+    position: relative;
+    background-color: #0a0e1f;
+    overflow: hidden;
+}
+
+.madewith .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.madewith h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+
+.team-card-link {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.team-card-link:hover {
+    text-decoration: none; 
+    
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+
+.client-logos-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.client-logos {
+    display: flex;
+    animation: scroll 30s linear infinite;
+}
+
+.client-logos-container:hover .client-logos {
+    animation-play-state: paused;
+}
+
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 200px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 20px 40px;
+    margin-right: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.7), 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.client-logo img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    /* filter: brightness(0) invert(1); */
+    transition: transform 0.3s ease;
+}
+
+.client-logo:hover img {
+    transform: scale(1.1);
+}
+
+.client-logo span {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.benefits-image {
+    width: 40%;
+    position: relative;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 1s ease forwards;
+}
+
+.benefits-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.benefits-image img:hover {
+    transform: scale(1.05);
+}
+
+.benefits-image::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(45deg, #3a7bfd, #439797);
+    border-radius: 20px;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.benefits-image:hover::before {
+    opacity: 0.8;
+}
+
+.cta {
+    background-color: #3a7bfd;
+    padding: 50px 0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 50px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.7), 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.team {
+    padding: 50px 0;
+}
+
+.team h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.team-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-card {
+    background-color: #1a1f35;
+    padding: 30px;
+    border-radius: 10px;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-cardcenter{
+    text-align: center;
+}
+.team-cardfixed{
+    text-align: fixed;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.7), 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+    transform: scale(1.1);
+}
+
+.team-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.team-card p {
+    font-size: 18px;
+    color:#b6b6b6;
+}
+
+footer {
+    size: 10px;
+    background-color: #1a1f35;
+    padding: 20px 0;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+footer:hover {
+    background-color: #2a3045;
+}
+
+
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero, .benefits {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content, .hero-image, .benefits-content, .benefits-image {
+        width: 100%;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .team-cards {
+        flex-direction: column;
+    }
+
+    .team-card {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .madewith h2 {
+        font-size: 28px;
+    }
+
+    .client-logo {
+        min-width: 160px;
+        height: 50px;
+        padding: 8px 16px;
+    }
+
+    .client-logo img {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+
+    .client-logo span {
+        font-size: 14px;
+    }
+    
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .madewith h2 {
+        font-size: 24px;
+    }
+
+    .client-logo {
+        min-width: 140px;
+        height: 40px;
+        padding: 6px 12px;
+    }
+
+    .client-logo img {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+    }
+
+    .client-logo span {
+        font-size: 12px;
+    }
+}

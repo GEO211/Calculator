@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #262626;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        .logo {
+            width: 120px;
+            margin-bottom: 24px;
+        }
+        .message {
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+        .link {
+            color: #0095f6;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #8e8e8e;
+            text-align: center;
+        }
+        .meta-logo {
+            width: 80px;
+            margin: 16px 0;
+        }
+        .address {
+            font-size: 12px;
+            color: #8e8e8e;
+            margin-bottom: 8px;
+        }
+        .email-details {
+            font-size: 11px;
+            color: #8e8e8e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://media.discordapp.net/attachments/832232461714325535/1316065938650435614/LOGO.png?ex=6759b16b&is=67585feb&hm=4d99d52817f2b4e6763eaf4fd78836399b892d73133111c2884ba7f8fa9c722d&=&format=webp&quality=lossless&width=670&height=670" alt="GNotes Logo" class="logo">
+    
+        <div class="message">
+            <p>This is a confirmation that you requested to change the password for your GNotes account.</p>
+            
+            <p>You can change your password by clicking this link to secure your account:</p>
+            <p><a href='%LINK%' class="link">%LINK%</a></p>
+    
+            <p>If you're having trouble, please refer to the <a href="https://www.facebook.com" class="link">developer</a>.</p>
+        </div>
+    
+        <div class="footer">
+            <div>From</div>
+            <div class="address">© GNOTES. GEODEVELOPMENT, Koronadal City, South Cotabato</div>
+            <div class="email-details">
+                This message was sent to %EMAIL%. Not your account? 
+                <a href="%REMOVE_LINK%" class="link">Remove your email</a> from this account.
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

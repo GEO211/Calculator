@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="shortcut icon" type="x-icon" href="/images/calcu.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body class="min-h-screen bg-gray-100 flex items-center justify-center">
+
+    <div class="container">
+        <div class="header">
+            <h1 id="welcomeMessage">Welcome, User</h1>
+            <div class="header-buttons">
+                <a href="settings.html" class="settings-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                    </svg>
+                    Settings
+                </a>
+                <button id="logoutButton" class="logout-btn">Log Out</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="calculator">
+                <div class="display-container">
+                    <input id="display" type="text" readonly>
+                </div>
+                <div class="buttons-grid">
+                    <button class="calc-btn" id="sqrtBtn">√x</button>
+                    <button class="calc-btn" id="sinBtn">sin</button>
+                    <button class="calc-btn" id="cosBtn">cos</button>
+                    <button class="calc-btn" id="tanBtn">tan</button>
+                    <button class="calc-btn operator">(</button>
+                    <button class="calc-btn operator">)</button>
+                    <button id="clearBtn">C</button>
+                    <button id="backspaceBtn">←</button>
+                    <button class="calc-btn">7</button>
+                    <button class="calc-btn">8</button>
+                    <button class="calc-btn">9</button>
+                    <button class="calc-btn operator">*</button>
+                    <button class="calc-btn">4</button>
+                    <button class="calc-btn">5</button>
+                    <button class="calc-btn">6</button>
+                    <button class="calc-btn operator">-</button>
+                    <button class="calc-btn">1</button>
+                    <button class="calc-btn">2</button>
+                    <button class="calc-btn">3</button>
+                    <button class="calc-btn operator">/</button>
+                    <button class="calc-btn" id="squareBtn">x²</button>
+                    <button class="calc-btn">0</button>
+                    <button class="calc-btn">.</button>
+                    <button class="calc-btn operator">+</button>
+                    <button id="calculateBtn" class="col-span-2">=</button>
+
+                </div>
+            </div>
+            <div class="history">
+                <h2>History</h2>
+                <div class="history-table-container">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Time | Date</th>
+                                <th>Input</th>
+                                <th>Output</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <!-- History items will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 GCalculator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="/js/calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - GCalculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/settings.css">
+    <link rel="shortcut icon" type="x-icon" href="/images/calcu.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Settings</h1>
+            <button id="backButton">
+                <i class="fas fa-arrow-left"></i>
+                Back to Calculator
+            </button>
+        </div>
+
+        <div class="settings-container">
+            <div class="options-menu">
+                <div class="option-card active" data-section="profile">
+                    <div class="option-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="option-title">Profile Settings</div>
+                </div>
+                <div class="option-card" data-section="security">
+                    <div class="option-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="option-title">Security Settings</div>
+                </div>
+            </div>
+
+            <div id="profileSection" class="section-content active">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" readonly>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="securitySection" class="section-content">
+                <form id="passwordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Update Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="/js/settings.js"></script>
+</body>
+</html> 
